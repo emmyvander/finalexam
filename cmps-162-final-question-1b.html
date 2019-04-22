@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMPS 162 Finals Question 1</title>
+<script>
+
+/* Function to get random character */
+function getRandomCharacter(input) {
+  var text = "";
+  var possible;
+  for (var j = 0; j < input.length; j ++){
+    if (input [j] == ""){
+      possible = ' ';
+
+      /* Upper Case */
+    } else if ((input[j] == input[j].toUpperCase()) && (input[j] != input[j].toLowerCase())){
+      possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+      /* Lower Case */
+    } else if ((input[j] == input[j].toLowerCase()) && (input[j] != input[j].toUpperCase())){
+      possible = "abcdefghijklmnopqrstuvwxyz";
+
+      /* Numbers */
+    } else if ('0123456789'.indexOf(input[j]) !== -1){
+      possible = "0123456789";
+
+      /* Special Characters */
+    } else {
+      possible = "#!@~$%&*)-_";
+    }
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+}
+
+/* Generate 3 lower case, one special character, 1 upper case,
+4 lower case */
+alert(getRandomCharacter("PPU Rocks"));
+
+/* Generate 12 upper case */
+alert(getRandomCharacter("PPUROCKSMORE"));
+
+</script>
+<body>
+</body>
+</html>
